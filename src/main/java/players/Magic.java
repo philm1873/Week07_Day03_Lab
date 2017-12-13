@@ -1,6 +1,6 @@
 package players;
 
-public class Magic extends Player {
+public class Magic extends Player implements IAttack{
     SpellType spell;
     CreatureType creature;
 

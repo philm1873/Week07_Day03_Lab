@@ -20,5 +20,9 @@ public class FighterTest {
         assertEquals(50, testFighter.attack());
     }
 
-
+    @Test
+    public void canTakeDamage(){
+        testFighter.takeDamage(100);
+        assertEquals(550, testFighter.getHealth());
+    }
 }

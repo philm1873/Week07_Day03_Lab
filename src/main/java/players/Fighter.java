@@ -1,6 +1,6 @@
 package players;
 
-public class Fighter extends Player {
+public class Fighter extends Player implements IAttack{
     WeaponType weapon;
     DefenceType defence;
 
@@ -12,5 +12,9 @@ public class Fighter extends Player {
 
     public int attack() {
         return weapon.getValue();
+    }
+
+    public void takeDamage(int i) {
+        health -= i - defence.getValue();
     }
 }

@@ -1,4 +1,4 @@
 package rooms;
 
-public class Treasure {
+public class Treasure extends Room {
 }
