@@ -24,4 +24,8 @@ public abstract class Player {
     public void setHealth(int health) {
         this.health = health;
     }
+
+    public Boolean checkDead() {
+       return health <= 0;
+    }
 }

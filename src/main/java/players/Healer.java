@@ -21,4 +21,8 @@ public class Healer extends Player{
     public int getPotions() {
         return potions;
     }
+
+    public void takeDamage(int value){
+        health -= value;
+    }
 }

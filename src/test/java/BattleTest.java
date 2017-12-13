@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class BattleTest {
 
@@ -27,14 +28,52 @@ public class BattleTest {
         testFighter = new Fighter("Barbarian",900, WeaponType.CLUB, DefenceType.LEATHER);
         testHealer = new Healer("Cleric", 300, 10);
         testAttackers = new ArrayList<>(Arrays.asList(testMagic,testFighter));
+        testBattle.setAttackers(testAttackers);
+        testBattle.setHealer(testHealer);
+    }
+
+//    @Test
+//    public void roomStartsEmpty() {
+//        assertEquals(null, testBattle.getHealer());
+//        ArrayList<IAttack> test = new ArrayList<>();
+//        assertEquals(test, testBattle.getAttackers());
+//    }
+
+    @Test
+    public void canPopulateRoom() {
+        assertEquals(testAttackers, testBattle.getAttackers());
+        assertEquals(testHealer, testBattle.getHealer());
     }
 
     @Test
-    public void roomStartsEmpty() {
-        assertEquals(null, testBattle.getHealer());
-        ArrayList<IAttack> test = new ArrayList<>();
-        assertEquals(test, testBattle.getAttackers());
+    public void wontKillAttacker(){
+        testAttackers.get(1).takeDamage(500);
+        testBattle.findDead();
+        assertEquals(2, testAttackers.size());
     }
+
+    @Test
+    public void canKillAttacker(){
+        testAttackers.get(1).takeDamage(1000);
+        testBattle.findDead();
+        assertEquals(1, testAttackers.size());
+    }
+
+    @Test
+    public void canKillHealer(){
+        testHealer.takeDamage(500);
+        testBattle.findDeadHealer();
+        assertEquals(null, testBattle.getHealer());
+    }
+
+    @Test
+    public void canKillEnemy(){
+        testEnemy.takeDamage(1001);
+        testBattle.findDeadEnemy();
+        assertEquals(null, testBattle.getEnemy());
+    }
+
+
 
 
 

@@ -25,4 +25,10 @@ public class FighterTest {
         testFighter.takeDamage(100);
         assertEquals(550, testFighter.getHealth());
     }
+
+    @Test
+    public void canDie() {
+        testFighter.takeDamage(650);
+        assertEquals(true, testFighter.checkDead());
+    }
 }

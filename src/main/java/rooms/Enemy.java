@@ -27,4 +27,8 @@ public class Enemy {
     public void takeDamage(int value) {
         this.health -= value;
     }
+
+    public Boolean checkDead() {
+        return health <= 0;
+    }
 }
