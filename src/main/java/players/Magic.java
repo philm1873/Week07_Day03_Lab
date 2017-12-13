@@ -15,6 +15,11 @@ public class Magic extends Player {
     }
 
     public void takeDamage(int value) {
-        this.health -= value;
+        this.health -= value - this.creature.getValue();
+    }
+
+
+    public void takePotion(int value) {
+        this.health += value;
     }
 }

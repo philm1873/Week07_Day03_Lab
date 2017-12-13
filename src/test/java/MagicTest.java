@@ -24,6 +24,12 @@ public class MagicTest {
     @Test
     public void canTakeDamage(){
         testMagic.takeDamage(100);
-        assertEquals(900, testMagic.getHealth());
+        assertEquals(930, testMagic.getHealth());
+    }
+
+    @Test
+    public void canTakePotion(){
+        testMagic.takePotion(100);
+        assertEquals(1100, testMagic.getHealth());
     }
 }
