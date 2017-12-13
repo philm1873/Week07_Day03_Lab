@@ -9,10 +9,12 @@ public abstract class Room {
 
     ArrayList<IAttack> attackers;
     Healer healer;
+    boolean completed;
 
     public Room(){
         this.attackers = new ArrayList<IAttack>();
         this.healer = null;
+        this.completed = false;
     }
 
     public ArrayList<IAttack> getAttackers() {
@@ -29,5 +31,9 @@ public abstract class Room {
 
     public void setHealer(Healer healer) {
         this.healer = healer;
+    }
+
+    public void setCompleted() {
+        this.completed = true;
     }
 }
