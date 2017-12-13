@@ -13,4 +13,8 @@ public class Magic extends Player {
     public int attack() {
         return spell.getValue();
     }
+
+    public void takeDamage(int value) {
+        this.health -= value;
+    }
 }

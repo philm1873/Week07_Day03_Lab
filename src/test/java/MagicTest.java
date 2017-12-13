@@ -20,4 +20,10 @@ public class MagicTest {
     public void canAttack() {
         assertEquals(80, testMagic.attack());
     }
+
+    @Test
+    public void canTakeDamage(){
+        testMagic.takeDamage(100);
+        assertEquals(900, testMagic.getHealth());
+    }
 }
